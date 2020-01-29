@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <html>
 <style>
 #idtodo{
@@ -13,7 +14,7 @@
 }
 
 </style>
-<body onload="fonloadmio();">
+<body >
 <div id="idtodo">
 
 
@@ -22,10 +23,28 @@
 </div>
 
 <script>
+$(document).ready(function(){
 
+    $.getJSON("lawpermitidas.json", function(result){
+      $.each(result, function(i, objurl){
+        console.log(objurl.pg);
+try {
+    showAndroidToast("x0",objurl.pg,"s2","s3") ;
+} catch (error) {
+    
+}
+      
+      });
+    });
+
+
+
+
+});
    var araryurlpermitidas=[];
 
-araryurlpermitidas.push("");
+
+   
 function fonloadmio(){
 
 
