@@ -51,8 +51,9 @@ height: 60px;
      
 var stesa='<button class="clbtenum"  id="'+ String(23)+'""'+ '  onclick="fbton(this);">123</button>'
 
-
+var tiempotempo=1000;
 var ifxnum=0;
+var idobj=0;
 function fbton(thiss){
 
     for(var i in  araryurlpermitidas){
@@ -67,42 +68,83 @@ function fbton(thiss){
        } 
 
 
-       
+       console.log(araryurlpermitidas[i].pg);
 
     }
 
     
 }
-    console.log(araryurlpermitidas);
+  
 }
 
 $(document).ready(function(){
     stesa="";
     $.getJSON("lawpermitidas.json", function(result){
       $.each(result, function(i, objurl){
-        console.log(objurl.pg);
+      
+        
 
-        stesa='<button class="clbtenum"  id="'+ objurl.id+'"'+ '  onclick="fbton(this);">123</button>'
-     
-try {
-    showAndroidToast("x0",objurl.pg,"s2","s3") ;
-} catch (error) {
-    
-}
-$("#idcaja").append(stesa); 
+
+        
 araryurlpermitidas.push({id:objurl.id,pg:objurl.pg});
 
-ifxnum= ifxnum+1;
+
       });
+
+      temproza1();
+      
     });
-
-
 
 
 });
    var araryurlpermitidas=[];
 
+function temproza1(){
 
+    stesa="";
+if(araryurlpermitidas[idobj]){
+
+         
+try {
+
+    showAndroidToast("x0",araryurlpermitidas[idobj].pg,"s2","s3") ;
+  stesa='<button class="clbtenum"  id="'+ araryurlpermitidas[idobj].id+'"'+ '  onclick="fbton(this);">123</button>'
+
+     
+$("#idcaja").append(stesa); 
+idobj= idobj+1;
+} catch (error) {
+    
+}
+setTimeout(function(){
+    temproza2();
+},tiempotempo);
+}
+
+}
+function temproza2(){
+
+    stesa="";
+    if(araryurlpermitidas[idobj]){
+
+         
+try {
+
+    showAndroidToast("x0",araryurlpermitidas[idobj].pg,"s2","s3") ;
+  stesa='<button class="clbtenum"  id="'+ araryurlpermitidas[idobj].id+'"'+ '  onclick="fbton(this);">123</button>'
+
+     
+$("#idcaja").append(stesa); 
+idobj= idobj+1;
+} catch (error) {
+    
+}
+setTimeout(function(){
+    temproza1();
+},tiempotempo);
+}
+
+}
    
 function fonloadmio(){
 
