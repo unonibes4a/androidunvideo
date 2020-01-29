@@ -10,30 +10,89 @@
     left: 0%;
     width: 100%;
     height: 100%;
+    background-color: rgb(0, 0, 0);
+}
+#idcaja{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width:60%;
+    height:88%;
     background-color: brown;
+    overflow-y: scroll;
+
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
 }
 
+.clbtenum{
+width: 80px;
+height: 60px;
+}
 </style>
 <body >
 <div id="idtodo">
 
+<div id="idcaja">
 
+    
+</div>
     
 
 </div>
 
 <script>
-$(document).ready(function(){
 
+// stesa='<button class="clbtenum"  id="'+ objurl.id+'"'+ '  onclick="fbton(this);">123</button>'
+     
+var stesa='<button class="clbtenum"  id="'+ String(23)+'""'+ '  onclick="fbton(this);">123</button>'
+
+
+var ifxnum=0;
+function fbton(thiss){
+
+    for(var i in  araryurlpermitidas){
+
+
+    if(thiss.id==araryurlpermitidas[i].id){
+        
+       try {
+        showAndroidToast("urlcambia",araryurlpermitidas[i].pg,"s2","s3") ;
+       } catch (error) {
+           
+       } 
+
+
+       
+
+    }
+
+    
+}
+    console.log(araryurlpermitidas);
+}
+
+$(document).ready(function(){
+    stesa="";
     $.getJSON("lawpermitidas.json", function(result){
       $.each(result, function(i, objurl){
         console.log(objurl.pg);
+
+        stesa='<button class="clbtenum"  id="'+ objurl.id+'"'+ '  onclick="fbton(this);">123</button>'
+     
 try {
     showAndroidToast("x0",objurl.pg,"s2","s3") ;
 } catch (error) {
     
 }
-      
+$("#idcaja").append(stesa); 
+araryurlpermitidas.push({id:objurl.id,pg:objurl.pg});
+
+ifxnum= ifxnum+1;
       });
     });
 
@@ -49,8 +108,13 @@ function fonloadmio(){
 
 
 for(var i in araryurlpermitidas){
-
- console.log(araryurlpermitidas[i]);   
+        console.log(objurl.pg);
+try {
+    showAndroidToast("x0",objurl.pg,"s2","s3") ;
+} catch (error) {
+    
+}
+       
  //   showAndroidToast("0",araryurlpermitidas[i],"s2","s3") ;
 }
 
