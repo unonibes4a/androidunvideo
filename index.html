@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<style>
+#idtodo{
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+}
+
+</style>
+<body onload="fonloadmio();">
+<div id="idtodo">
+
+
+    
+
+</div>
+
+<script>
+
+   var araryurlpermitidas=[];
+
+araryurlpermitidas.push("");
+function fonloadmio(){
+
+
+for(var i in araryurlpermitidas){
+
+ console.log(araryurlpermitidas[i]);   
+ //   showAndroidToast("0",araryurlpermitidas[i],"s2","s3") ;
+}
+
+       
+        
+
+
+}
+function showAndroidToast(id,s1,s2,s3) {
+            Android.showToast(id,s1,s2,s3);
+        }
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
